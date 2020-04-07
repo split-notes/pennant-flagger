@@ -57,7 +57,7 @@ func TestGetHelloServer(t *testing.T) {
 }
 
 func MockGetHelloRequiredServices(mockCtrl *gomock.Controller, data GetHelloTestData) *services.Bundle {
-	helloMock := services_mocks.NewMock_hello(mockCtrl)
+	helloMock := services_mocks.NewMockHello(mockCtrl)
 	helloExpect := helloMock.EXPECT()
 
 	if data.MockGetHello != nil {

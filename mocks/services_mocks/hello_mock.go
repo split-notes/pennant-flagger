@@ -10,31 +10,31 @@ import (
 	reflect "reflect"
 )
 
-// Mock_hello is a mock of Service interface
-type Mock_hello struct {
+// MockHello is a mock of Service interface
+type MockHello struct {
 	ctrl     *gomock.Controller
-	recorder *Mock_helloMockRecorder
+	recorder *MockHelloMockRecorder
 }
 
-// Mock_helloMockRecorder is the mock recorder for Mock_hello
-type Mock_helloMockRecorder struct {
-	mock *Mock_hello
+// MockHelloMockRecorder is the mock recorder for MockHello
+type MockHelloMockRecorder struct {
+	mock *MockHello
 }
 
-// NewMock_hello creates a new mock instance
-func NewMock_hello(ctrl *gomock.Controller) *Mock_hello {
-	mock := &Mock_hello{ctrl: ctrl}
-	mock.recorder = &Mock_helloMockRecorder{mock}
+// NewMockHello creates a new mock instance
+func NewMockHello(ctrl *gomock.Controller) *MockHello {
+	mock := &MockHello{ctrl: ctrl}
+	mock.recorder = &MockHelloMockRecorder{mock}
 	return mock
 }
 
 // EXPECT returns an object that allows the caller to indicate expected use
-func (m *Mock_hello) EXPECT() *Mock_helloMockRecorder {
+func (m *MockHello) EXPECT() *MockHelloMockRecorder {
 	return m.recorder
 }
 
 // Create mocks base method
-func (m *Mock_hello) Create(greetingModel models.Greetings) (*models.Greetings, error) {
+func (m *MockHello) Create(greetingModel models.Greetings) (*models.Greetings, error) {
 	ret := m.ctrl.Call(m, "Create", greetingModel)
 	ret0, _ := ret[0].(*models.Greetings)
 	ret1, _ := ret[1].(error)
@@ -42,12 +42,12 @@ func (m *Mock_hello) Create(greetingModel models.Greetings) (*models.Greetings, 
 }
 
 // Create indicates an expected call of Create
-func (mr *Mock_helloMockRecorder) Create(greetingModel interface{}) *gomock.Call {
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Create", reflect.TypeOf((*Mock_hello)(nil).Create), greetingModel)
+func (mr *MockHelloMockRecorder) Create(greetingModel interface{}) *gomock.Call {
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Create", reflect.TypeOf((*MockHello)(nil).Create), greetingModel)
 }
 
 // Get mocks base method
-func (m *Mock_hello) Get() ([]models.Greetings, error) {
+func (m *MockHello) Get() ([]models.Greetings, error) {
 	ret := m.ctrl.Call(m, "Get")
 	ret0, _ := ret[0].([]models.Greetings)
 	ret1, _ := ret[1].(error)
@@ -55,6 +55,6 @@ func (m *Mock_hello) Get() ([]models.Greetings, error) {
 }
 
 // Get indicates an expected call of Get
-func (mr *Mock_helloMockRecorder) Get() *gomock.Call {
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Get", reflect.TypeOf((*Mock_hello)(nil).Get))
+func (mr *MockHelloMockRecorder) Get() *gomock.Call {
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Get", reflect.TypeOf((*MockHello)(nil).Get))
 }
